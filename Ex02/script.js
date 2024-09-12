@@ -22,7 +22,7 @@ function lerNotas() {
     let media = soma / notas.length;
 //junta todos os elementos de um array e retorna na string calculo notas
 
-    alert("As notas informadas foram: " + notas.join(", ") + "\nMédia: " + media.toFixed(2));
+    alert("As notas informadas foram: " + notas.toString(", ") + "\nMédia: " + media.toFixed(2));
 }
 
 // Chama a função para executar

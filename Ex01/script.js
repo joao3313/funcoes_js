@@ -15,7 +15,7 @@ function listaNumeros() {
         }
     }
 //junta todos os elementos de um array e retorna na string
-    alert("Os números informados foram: " + numeros.join(", "));
+    alert("Os números informados foram: " + numeros.toString(", "));
 }
 
 // Chama a função para executar

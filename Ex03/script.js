@@ -34,7 +34,7 @@ function mostrarConsoantes(letras) {
 
     //junta todos os elementos de um array e retorna na função consoantes 
 
-    alert("As consoantes são: " + consoantes.join(", "));
+    alert("As consoantes são: " + consoantes.toString(", "));
 }
 
 function main() {

@@ -37,7 +37,7 @@ function exibirLista() {
         alert("Nenhum número foi cadastrado.");
         return;
     }
-    alert("Números cadastrados: " + numeros.join(", "));
+    alert("Números cadastrados: " + numeros.toString(", "));
 }
 
 // Função para exibir apenas os números pares
@@ -46,7 +46,7 @@ function exibirPares() {
     if (pares.length === 0) {
         alert("Nenhum número par foi cadastrado.");
     } else {
-        alert("Números pares: " + pares.join(", "));
+        alert("Números pares: " + pares.toString(", "));
     }
 }
 
@@ -56,7 +56,7 @@ function exibirImpares() {
     if (impares.length === 0) {
         alert("Nenhum número ímpar foi cadastrado.");
     } else {
-        alert("Números ímpares: " + impares.join(", "));
+        alert("Números ímpares: " + impares.toString(", "));
     }
 }
 
