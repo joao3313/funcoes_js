@@ -18,14 +18,14 @@ function cadastrarNumeros(quantidade) {
     for (let i = 0; i < quantidade; i++) {
         let numeroValido = false;
         while (!numeroValido) {
-            let input = prompt(`Digite o ${i + 1}º número inteiro (não negativo):`);
-            let numero = parseInt(input);
+            let lerNumeros = prompt(`Digite o ${i + 1}º número inteiro (não negativo):`);
+            let numero = parseInt(lerNumeros);
 
             if (!isNaN(numero) && numero >= 0) {
                 numeros.push(numero);
                 numeroValido = true;
             } else {
-                alert("Erro: Informe um número inteiro válido e não negativo.");
+                alert("Inválido: Informe um número inteiro válido e não negativo.");
             }
         }
     }
@@ -60,6 +60,8 @@ function exibirImpares() {
     }
 }
 
+
+
 // Função para exibir o menu de exibição de números
 function menuExibir() {
     let opcao;
@@ -83,6 +85,7 @@ function menuExibir() {
         }
     } while (opcao !== '4');
 }
+
 
 // Função para exibir o menu principal
 function menuPrincipal() {

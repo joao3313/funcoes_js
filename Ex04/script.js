@@ -13,7 +13,7 @@ function cadastrarPessoa() {
 
     let nome = prompt("Digite o nome da pessoa:");
     if (!nome) {
-        alert("Erro: O nome não pode ser vazio.");
+        alert("Inválido: O nome não pode ser vazio.");
         return;
     }
 
@@ -39,10 +39,10 @@ function mostrarDados() {
         return;
     }
 
-    let resultado = "Nomes, Salários Brutos e Salários Líquidos:\n";
+    let resultado = "Nomes : Salários Brutos e Salários Líquidos: \n";
     pessoas.forEach(pessoa => {
         let salarioLiquido = calcularSalarioLiquido(pessoa.salarioBruto);
-        resultado += `Nome: ${pessoa.nome}, Salário Bruto: R$${pessoa.salarioBruto.toFixed(2)}, Salário Líquido: R$${salarioLiquido.toFixed(2)}\n`;
+        resultado += `${pessoa.nome}, Salário Bruto: R$${pessoa.salarioBruto.toFixed(2)}, Salário Líquido: R$${salarioLiquido.toFixed(2)}\n`;
     });
 
     alert(resultado);

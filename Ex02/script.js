@@ -2,28 +2,48 @@
 // considerando que o usuário não pode informar letras, palavras ou vazio.
 // Alerte-o do erro e repita a leitura das notas caso ocorra.
 
+
 function lerNotas() {
     let notas = [];
-    while (notas.length < 4) {
-        let input = prompt(`Digite a ${notas.length + 1}ª nota (0 a 10):`);
-        let nota = parseFloat(input);
-
-
-        //Funão lê  nota e verifica negando letras digitadas
-        if (!isNaN(nota) && nota >= 0 && nota <= 10) {
-            notas.push(nota);
-       } else {
-            alert("Inválido: Você deve digitar apenas números entre 0 e 10. Tente novamente.");
+    
+    for (let i = 0; i < 4; i++) {
+        let notaValida = false;
+        
+        while (!notaValida) {
+            let input = prompt(`Digite a ${i + 1}ª nota (0 a 10):`);
+            let nota = parseFloat(input);
+            
+            // Verifica se o valor é um número e se está entre 0 e 10
+            if (!isNaN(nota) && nota >= 0 && nota <= 10) {
+                notas.push(nota);
+                notaValida = true;
+            } else {
+                alert("Inválido: Digite uma nota válida entre 0 e 10.");
+            }
         }
     }
 
-    //valor cumulativo , retornando a soma das notas com a média
-    let soma = notas.reduce((num, nota) => num + nota, 0);
-    let media = soma / notas.length;
-//junta todos os elementos de um array e retorna na string calculo notas
+    // Calcula a média
+    let soma = 0;
+    for (let i = 0; i < notas.length; i++) {
+        soma += notas[i];
+    }
+    let media = soma / 4;
 
-    alert("As notas informadas foram: " + notas.toString(", ") + "\nMédia: " + media.toFixed(2));
+    // Exibe as notas e a média
+    alert("Notas: " + notas.join(", ") +"\nMédia: " + media);
 }
 
-// Chama a função para executar
+// Chama a função
 lerNotas();
+
+
+
+
+
+
+
+
+
+
+
