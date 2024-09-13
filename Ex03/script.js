@@ -20,7 +20,7 @@ function Letras() {
     while (letras.length < 10) {
         let letra = prompt(`Digite a ${letras.length + 1}ª letra:`);
 
-// Test verifica o inicio de uma String
+// Test verifica o inicio de uma String, usando o .test para retornar true ou false
         if (letra && letra.length === 1 && /[a-zA-Z]/.test(letra)) {
             letras.push(letra.toLowerCase());
         } else {
