@@ -5,7 +5,7 @@
 let pessoas = []; // Array para armazenar os dados das pessoas
 
 // Função para cadastrar uma pessoa
-function cadastrarPessoa() {
+function informeNome() {
     if (pessoas.length >= 50) {
         alert("Limite de 50 cadastros atingido.");
         return;
@@ -33,13 +33,13 @@ function calcularSalarioLiquido(salarioBruto) {
 }
 
 // Função para mostrar os dados das pessoas cadastradas
-function mostrarDados() {
+function ehDados() {
     if (pessoas.length === 0) {
         alert("Nenhum cadastro realizado.");
         return;
     }
 
-    let resultado = "Nomes : Salários Brutos e Salários Líquidos: \n";
+    let resultado = "Nomes: Salários Brutos e Salários Líquidos:\n";
     pessoas.forEach(pessoa => {
         let salarioLiquido = calcularSalarioLiquido(pessoa.salarioBruto);
         resultado += `${pessoa.nome}, Salário Bruto: R$${pessoa.salarioBruto.toFixed(2)}, Salário Líquido: R$${salarioLiquido.toFixed(2)}\n`;
@@ -48,27 +48,16 @@ function mostrarDados() {
     alert(resultado);
 }
 
-// Função do menu principal
-function menu() {
-    let opcao;
+// Função do menu de continuação
+function menuContinuacao() {
+    let continuar;
     do {
-        opcao = prompt("Menu:\n1 - Cadastrar Pessoa\n2 - Mostrar Dados\n3 - Sair\nEscolha uma opção:");
+        informeNome();
+        continuar = prompt("Deseja continuar o cadastro? (S/N):").toUpperCase();
+    } while (continuar === 'S' && pessoas.length < 50);
 
-        switch (opcao) {
-            case '1':
-                cadastrarPessoa();
-                break;
-            case '2':
-                mostrarDados();
-                break;
-            case '3':
-                alert("Saindo...");
-                break;
-            default:
-                alert("Opção inválida. Tente novamente.");
-        }
-    } while (opcao !== '3');
+    ehDados();
 }
 
-// Chama a função do menu principal
-menu();
+// Chama a função do menu de continuação
+menuContinuacao();
