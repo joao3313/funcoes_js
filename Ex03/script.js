@@ -7,50 +7,38 @@
 
 
 
-
-function Vogal(letra) {
+function ehVogal(letra) {
     const vogais = ['a', 'e', 'i', 'o', 'u'];
-    return vogais.includes(letra.toLowerCase());
+    return vogais.includes(letra.toLowerCase()); // Verifica se a letra é uma vogal (ignora maiúsculas/minúsculas)
 }
 
-// Faz a verificação de letras digitadas, numeros ou caracteres especiais, negando se não for letras
-
-function Letras() {
+function lerLetras() {
     let letras = [];
-    while (letras.length < 10) {
-        let letra = prompt(`Digite a ${letras.length + 1}ª letra:`);
+    let consoantes = [];
+    let vogais = 0;
 
-// Test verifica o inicio de uma String, usando o .test para retornar true ou false
+    for (let i = 0; i < 10; i++) {
+        let letra = prompt(`Digite a ${i + 1}ª letra:`);
+
         if (letra && letra.length === 1 && /[a-zA-Z]/.test(letra)) {
-            letras.push(letra.toLowerCase());
+            letras.push(letra);
+
+            // Verifica se é vogal ou consoante
+            if (ehVogal(letra)) {
+                vogais++;
+            } else {
+                consoantes.push(letra);
+            }
         } else {
-            alert("Inválido: Digite uma letra, e tente novamente.");
+            alert("Inválido: Digite uma letra válida.");
+            i--; // Repetir a leitura se for inválido
         }
     }
-    return letras;
+
+    // Mostra a quantidade de vogais e as consoantes
+    alert(`Número de vogais lidas: ${vogais}`);
+    alert(`Consoantes: ${consoantes.join(", ")}`);
 }
 
-//Filter - chama uma função fornecida em cada elemento array
-// contar vogais no parametro letras everificar
-function contarVogais(letras) {
-    let vogais = letras.filter(letra => Vogal(letra));
-    return vogais.length;
-}
-// verifica letras no parametro
-function mostreConsoantes(letras) {
-    let consoantes = letras.filter(letra => !Vogal(letra));
-
-    //junta todos os elementos de um array e retorna na função consoantes 
-
-    alert("As consoantes são: " + consoantes.toString(", "));
-}
-
-function main() {
-    let letras = Letras();
-    let qtdVogais = contarVogais(letras);
-    alert("Número de vogais lidas: " + qtdVogais);
-    mostreConsoantes(letras);
-}
-
-// Chama a função principal
-main();
+// Chama a função
+lerLetras();
