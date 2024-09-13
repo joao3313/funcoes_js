@@ -4,12 +4,14 @@
 
 let pessoas = []; // Array para armazenar os dados das pessoas
 
-// Função para cadastrar uma pessoa
+// Função abaixo para cadastrar uma pessoa
 function informeNome() {
     if (pessoas.length >= 50) {
         alert("Limite de 50 cadastros atingido.");
         return;
     }
+
+
 
     let nome = prompt("Digite o nome da pessoa:");
     if (!nome) {
@@ -22,6 +24,8 @@ function informeNome() {
         alert("Erro: Salário inválido. Tente novamente.");
         return;
     }
+   // Função acima para cadastrar uma pessoa
+
 
     // Armazena o nome e salário bruto no array
     pessoas.push({ nome, salarioBruto });
